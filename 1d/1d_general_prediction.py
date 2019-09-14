@@ -31,7 +31,7 @@ model.add(Activation('relu'))
 model.add(Flatten())
 model.add(Dense(201))
 
-filepath="D:/paper_material/1d/"
+filepath="/1d/"
 model.load_weights(filepath+'model_weights_kernel2.h5')
 ###############################################################################
 def change_data(data):#if length of function is less than 202, we need to extend it to 202
@@ -89,7 +89,7 @@ def plot_function(result,data,test_location,name):
     plt.legend([p1,p2], ['original', 'cnn'])
     plt.title(str(i))
     plt.show()
-    plt.savefig('D:/paper_material/1d/1d_general_prediction'+name+'.svg')
+    plt.savefig('/1d/1d_general_prediction'+name+'.svg')
     plt.close()
 ###############################################################################    
     
@@ -114,7 +114,7 @@ for i in range(30):
     plt.legend([p1,p2], ['original data', 'CNN output'])
     plt.title('function on [-1,1] with data length=1002')
     plt.show()
-    plt.savefig('D:/paper_material/1d/1d_general_prediction/plot/'+'function_length_1002_'+str(i+1)+'.svg')
+    plt.savefig('/1d/1d_general_prediction/plot/'+'function_length_1002_'+str(i+1)+'.svg')
     plt.close()
 ##############another example##################################################
 a=[32,52,72,92,102,202,302,402,502,602,702,802,902,1002]
@@ -135,7 +135,7 @@ for i in range(14):
     plt.legend([p1,p2], ['original data', 'CNN output'])
     plt.title('('+chr(i+96)+')')
     plt.show()
-    plt.savefig('D:/paper_material/1d/1d_general_prediction/plot/'+'function_length_'+str(n)+'.svg')
+    plt.savefig('/1d/1d_general_prediction/plot/'+'function_length_'+str(n)+'.svg')
     plt.close()
 
 
