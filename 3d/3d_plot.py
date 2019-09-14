@@ -10,22 +10,14 @@ from keras.engine.topology import Layer
 from keras.models import Sequential
 from keras.layers import Conv3D, MaxPool3D,Lambda,Dense,BatchNormalization,Flatten,Reshape,Dropout,Activation
 from keras.optimizers import SGD, Adam
-import numpy as np
 from scipy.io import loadmat
-import matplotlib.pyplot as plt
-from matplotlib import *
-import sys
-import pylab as pl
 from keras.models import Model
-from sklearn import preprocessing
-import cv2
-import os
 import tensorflow as tf
 import skimage
 from matplotlib import colors
 import matplotlib.patches as patches
 #############################################################################################################
-folder='D:/sphere_cut/'
+folder='/sphere_cut/'
 test_data=[]
 test_label=[]
 for i in range(5000,5021):    
@@ -44,7 +36,7 @@ model.add(MaxPool3D(pool_size=(2,2,2)))
 model.add(Conv3D(6, (2,2,2),strides=(2,2,2),activation='relu'))
 model.add(Flatten())
 model.add(Dense(1000))
-model.load_weights('D:/paper_material/3d/model_weights_3D_10_10.h5')
+model.load_weights('/3d/model_weights_3D_10_10.h5')
 result=model.predict(test_data)
 ###########################################################################################################
 threshold=0.4
@@ -73,5 +65,5 @@ for i in range(10):
         ax.plot3D([x[j],x[j]], [y[j]+10,y[j]+10], [z[j],z[j]+10], 'red')
         ax.plot3D([x[j]+10,x[j]+10], [y[j]+10,y[j]+10], [z[j],z[j]+10], 'red')
     plt.show()
-    plt.savefig('D:/paper_material/3d/plot/'+str(i)+'.svg')
+    plt.savefig('/3d/plot/'+str(i)+'.svg')
     plt.close()
