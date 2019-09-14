@@ -15,10 +15,7 @@ from keras.engine.topology import Layer
 from keras.models import Sequential
 from keras.layers import MaxPooling2D,Lambda,Dense,BatchNormalization,Flatten,Reshape,Dropout,Activation,Convolution2D,GlobalAveragePooling1D
 from keras.optimizers import SGD, Adam
-import numpy as np
 from scipy.io import loadmat
-from matplotlib import *
-import pylab as pl
 from keras.models import Model
 from sklearn import preprocessing
 from matplotlib import colors
@@ -151,7 +148,7 @@ model.add(Convolution2D(32, (2,2),strides=(1,1),activation='relu'))
 model.add(Flatten())
 model.add(Dense(100))
 
-model.load_weights('D:/paper_material/2d/model_weights_10_10_normalize.h5')
+model.load_weights('/2d/model_weights_10_10_normalize.h5')
 ###############################################################################
 def extend_function(data):
     if len(data)>=101 and len(data[0])>=101:
@@ -274,13 +271,13 @@ def predict_draw(data,label,m1,m2,threshold1,threshold2,name):
         ind_1+=m1 
     plt.show()
     plt.title("length of each side="+str(name))
-    plt.savefig('D:/paper_material/2d/2d_general_prediction/plot/'+str(name)+'.pdf')
+    plt.savefig('/2d/2d_general_prediction/plot/'+str(name)+'.pdf')
     plt.close()    
     print(final_result)
 #########################an example######################################################
 a=[51,71,101,151,201]
 for h in range(5):
-    temp=loadmat('D:/paper_material/2d/2d_general_prediction/data_example/'+str(a[h])+'.mat')
+    temp=loadmat('/2d/2d_general_prediction/data_example/'+str(a[h])+'.mat')
     data=temp['Z']
     label=temp['label1']
     predict_draw(data,label,90,90,0.36,0.12,a[h])
