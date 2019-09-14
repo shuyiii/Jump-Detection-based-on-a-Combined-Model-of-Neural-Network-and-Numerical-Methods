@@ -1,1 +1,1 @@
-# Jump-Detection-based-on-CNN-and-Polynomial-Annihilation
+# Jump detection based on CNN and numerical methods.
