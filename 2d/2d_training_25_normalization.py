@@ -9,7 +9,6 @@ from scipy.io import loadmat
 import matplotlib.pyplot as plt
 from matplotlib import *
 import sys
-import pylab as pl
 from keras.models import Model
 from sklearn import preprocessing
 import cv2
