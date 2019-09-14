@@ -15,10 +15,7 @@ from keras.engine.topology import Layer
 from keras.models import Sequential
 from keras.layers import MaxPooling2D,Lambda,Dense,BatchNormalization,Flatten,Reshape,Dropout,Activation,Convolution2D,GlobalAveragePooling1D
 from keras.optimizers import SGD, Adam
-import numpy as np
 from scipy.io import loadmat
-from matplotlib import *
-import pylab as pl
 from keras.models import Model
 from sklearn import preprocessing
 from matplotlib import colors
@@ -35,7 +32,7 @@ model.add(Convolution2D(32, (2,2),strides=(1,1),activation='relu'))
 model.add(Flatten())
 model.add(Dense(100))
 
-model.load_weights('D:/paper_material/2d/2stepmodelupdate/model_weights_10_10_normalize.h5')
+model.load_weights('/2d/2stepmodelupdate/model_weights_10_10_normalize.h5')
 
 
 model2 = Sequential()
@@ -45,7 +42,7 @@ model2.add(Convolution2D(32, (2,2),strides=(1,1),activation='relu'))
 model2.add(Flatten())
 model2.add(Dense(100))
 
-model2.load_weights('D:/paper_material/2d/2stepmodelupdate/model_weights_10_10_local_normalize.h5')
+model2.load_weights('/2d/2stepmodelupdate/model_weights_10_10_local_normalize.h5')
 ###############################################################################
 def extend_function(data):
     if len(data)>=101 and len(data[0])>=101:
@@ -174,7 +171,7 @@ def predict_draw(data,label,m1,m2,threshold1,threshold2,name):
        ax.add_patch(rect)
     plt.show()
     plt.title("length of each side="+str(name))
-    plt.savefig('D:/paper_material/2d/2d_general_prediction/plot/CNN+CNN_'+str(name)+'.svg')
+    plt.savefig('/2d/2d_general_prediction/plot/CNN+CNN_'+str(name)+'.svg')
     plt.close()    
     print(final_result)
 #########################an example######################################################
