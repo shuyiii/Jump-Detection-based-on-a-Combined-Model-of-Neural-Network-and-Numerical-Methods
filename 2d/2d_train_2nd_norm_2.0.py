@@ -40,11 +40,11 @@ adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=F
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
 
-filepath="/users/PAS1263/osu8085/2D_models/new_train/"
+filepath="/2D_models/new_train/"
 model.load_weights(filepath+'model_weights_10_10_normalization_each.h5')
 ###############################################################################
 num=76045
-folder='/fs/project/PAS1263/data/circle_1mil/'
+folder='/data/circle_1mil/'
 train_data=[]
 train_label=[]
 t=np.load('label_10_circle.npy')
@@ -68,7 +68,7 @@ for i in range(1,num+1):
                train_data.append(tmp.reshape(11,11,1))
                train_label.append(label[10*j:10*(j+1),10*k:10*(k+1)].ravel())
 num=68076
-folder='/fs/project/PAS1263/data/line_curve/'
+folder='/data/line_curve/'
 t=np.load('label_10_line.npy')
 total_line=0#record how many samples of line used 
 total_true_line=0#record how many samples contain jumps
@@ -109,12 +109,14 @@ adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=F
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
 
-filepath="/users/PAS1263/osu8085/2D_models/new_train/"
+filepath="/2D_models/new_train/"
 model.load_weights(filepath+'model_weights_10_10_local_normalize.h5')
-filename="/users/PAS1263/osu8085/2D_models/new_train/model_weights_10_10_local_normalize_2.0.hdf5"
-checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,
-mode='max')
-callbacks_list = [checkpoint]
+filename="/2D_models/new_train/model_weights_10_10_local_normalize_2.0.hdf5"
+#checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,
+#mode='max')
+#callbacks_list = [checkpoint]
+
+#model.fit(train_data,train_label, validation_data=(test_data,test_label),batch_size=2000, epochs=50, verbose=0)
 model.fit(train_data,train_label, batch_size=2000, epochs=50, verbose=0)
 print(total_circle)
 print(total_true_circle)
