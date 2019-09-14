@@ -125,7 +125,7 @@ def cube_points_center(i,j,k,x,y,z):
         center.append(np.mean(vertex_location, axis=0))
     return center
 ###############################################################################
-folder='D:/sphere_cut/'
+folder='/sphere_cut/'
 test_data=[]
 test_label=[]
 center0=[]
@@ -215,5 +215,5 @@ for i in range(6):
         x1 = q[2]
         ax.scatter3D((x0[j]+x1+0.5)/100, (y0[j]+y1+0.5)/100, (z0[j]+z1+0.5)/100,s=1,color='red')
     plt.show()
-    plt.savefig('D:/paper_material/3d/plot/'+str(i)+'_2step'+'.svg')
+    plt.savefig('/3d/plot/'+str(i)+'_2step'+'.svg')
     plt.close()
