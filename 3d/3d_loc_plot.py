@@ -125,7 +125,7 @@ def cube_points_center(i,j,k,x,y,z):
         center.append(np.mean(vertex_location, axis=0))
     return center
 ###############################################################################
-folder='D:/sphere_cut/'
+folder='/sphere_cut/'
 test_data=[]
 test_label=[]
 for i in range(5000,5020):    
@@ -144,7 +144,7 @@ model.add(MaxPool3D(pool_size=(2,2,2)))
 model.add(Conv3D(6, (2,2,2),strides=(2,2,2),activation='relu'))
 model.add(Flatten())
 model.add(Dense(1000))
-model.load_weights('D:/paper_material/3d/model_weights_3D_10_10.h5')
+model.load_weights('/3d/model_weights_3D_10_10.h5')
 result=model.predict(test_data)
 ###############################################################################
 threshold1=0.3
@@ -195,5 +195,5 @@ for i in range(21):
         x1 = q[2]
         ax.scatter3D(x0[j]+x1+0.5, y0[j]+y1+0.5, z0[j]+z1+0.5,color='red')
     plt.show()
-    plt.savefig('D:/paper_material/3d/plot/'+str(i)+'_2step'+'.svg')
+    plt.savefig('/3d/plot/'+str(i)+'_2step'+'.svg')
     plt.close()
