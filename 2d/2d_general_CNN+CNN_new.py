@@ -15,10 +15,7 @@ from keras.engine.topology import Layer
 from keras.models import Sequential
 from keras.layers import MaxPooling2D,Lambda,Dense,BatchNormalization,Flatten,Reshape,Dropout,Activation,Convolution2D,GlobalAveragePooling1D
 from keras.optimizers import SGD, Adam
-import numpy as np
 from scipy.io import loadmat
-from matplotlib import *
-import pylab as pl
 from keras.models import Model
 from sklearn import preprocessing
 from matplotlib import colors
@@ -174,13 +171,13 @@ def predict_draw(data,label,m1,m2,threshold1,threshold2,name):
        ax.add_patch(rect)
     plt.show()
     plt.title("length of each side="+str(name))
-    plt.savefig('D:/paper_material/2d/2d_general_prediction/plot/CNN+CNN_'+str(name)+'.svg')
+    plt.savefig('/2d/2d_general_prediction/plot/CNN+CNN_'+str(name)+'.svg')
     plt.close()    
     print(final_result)
 #########################an example######################################################
 a=[51,71,101,151,201]
 for h in range(5):
-    temp=loadmat('D:/paper_material/2d/2d_general_prediction/data_example/'+str(a[h])+'.mat')
+    temp=loadmat('/2d/2d_general_prediction/data_example/'+str(a[h])+'.mat')
     data=temp['Z']
     label=temp['label1']
     predict_draw(data,label,90,90,0.5,0.3,a[h])
