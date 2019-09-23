@@ -55,7 +55,7 @@ model.add(Flatten())
 model.add(Dense(201))#relu or not?  should restrict each to 0 and 1
 
 
-filename="/users/PAS1263/osu8085/0.25_1_mil/ker2/ker2_5_and_10_120_normalize.hdf5"
+filename="/users/PAS1263/osu8085/0.25_1_mil/ker2/ker2_5_and_10_120_normalize.h5"
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,mode='max')
 callbacks_list = [checkpoint]
 adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
