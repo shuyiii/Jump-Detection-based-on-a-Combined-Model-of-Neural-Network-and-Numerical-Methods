@@ -56,7 +56,7 @@ for i in range(1,num+1):
     data=(data-np.mean(data))/np.std(data)
     label=temp['label1']
     temp_label=t[i-1]
-    pred_label=model.predict(data.reshape(1,101,101,1))>0.2
+    pred_label=model.predict(data.reshape(1,101,101,1))>0.1
     for j in range(10):
         for k in range(10):
             if pred_label[j*10+k]==1:
@@ -109,15 +109,14 @@ adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=F
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
 
-filepath="/2D_models/new_train/"
-model.load_weights(filepath+'model_weights_10_10_local_normalize.h5')
+#filepath="/2D_models/new_train/"
+#model.load_weights(filepath+'model_weights_10_10_local_normalize.h5')
 filename="/2D_models/new_train/model_weights_10_10_local_normalize_2.0.hdf5"
-#checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,
-#mode='max')
-#callbacks_list = [checkpoint]
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='max')
+callbacks_list = [checkpoint]
 
-#model.fit(train_data,train_label, validation_data=(test_data,test_label),batch_size=2000, epochs=50, verbose=0)
-model.fit(train_data,train_label, batch_size=2000, epochs=50, verbose=0)
+model.fit(train_data,train_label, validation_split=0.1，callbacks=callbacks_list,batch_size=2000, epochs=50, verbose=0)
+#model.fit(train_data,train_label, batch_size=2000, epochs=50, verbose=0)
 print(total_circle)
 print(total_true_circle)
 print(total_line)
