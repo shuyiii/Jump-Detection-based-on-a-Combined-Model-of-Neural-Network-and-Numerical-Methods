@@ -111,7 +111,7 @@ model.compile(optimizer = "adam", loss = root_mean_squared_error,
 
 #filepath="/2D_models/new_train/"
 #model.load_weights(filepath+'model_weights_10_10_local_normalize.h5')
-filename="/2D_models/new_train/model_weights_10_10_local_normalize_2.0.hdf5"
+filename="/2D_models/new_train/model_weights_10_10_local_normalize_2.0.h5"
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='max')
 callbacks_list = [checkpoint]
 
