@@ -115,7 +115,7 @@ filename="/2D_models/new_train/model_weights_10_10_local_normalize_2.0.hdf5"
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='max')
 callbacks_list = [checkpoint]
 
-model.fit(train_data,train_label, validation_split=0.1，callbacks=callbacks_list,batch_size=2000, epochs=50, verbose=0)
+model.fit(train_data,train_label, validation_split=0.1, callbacks=callbacks_list,batch_size=2000, epochs=50, verbose=0)
 #model.fit(train_data,train_label, batch_size=2000, epochs=50, verbose=0)
 print(total_circle)
 print(total_true_circle)
