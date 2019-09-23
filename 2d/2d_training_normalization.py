@@ -60,6 +60,6 @@ filepath="/users/PAS1263/osu8085/2D_models/new_train/"
 filename=filepath+"/model_weights_10_10_normalization_each.hdf5"
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='max')
 callbacks_list = [checkpoint]
-model.fit(train_data,train_label, validation_split=0.1，callbacks=callbacks_list,batch_size=1000, epochs=100, verbose=0)
+model.fit(train_data,train_label, validation_split=0.1, callbacks=callbacks_list,batch_size=1000, epochs=100, verbose=0)
 #print(np.mean(train_data))
 #print(np.std(train_data))
