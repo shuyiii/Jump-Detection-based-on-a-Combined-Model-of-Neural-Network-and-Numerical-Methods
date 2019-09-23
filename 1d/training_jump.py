@@ -38,14 +38,12 @@ model.add(Activation('relu'))
 model.add(Convolution2D(24, (1,2),strides=(1,2),input_shape=(1,202,1)))
 model.add(Activation('relu'))
 model.add(Flatten())
-model.add(Dense(201))#relu or not?  should restrict each to 0 and 1
+model.add(Dense(201))
 
-
+filename="./model_weights_kernel2_norm_near_100w_no_res.h5"
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,mode='max')
+callbacks_list = [checkpoint]
 adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
-
-filepath="/users/PAS1263/osu8085/1D data/1D data/0-3 jump near bound-2/"
-
-history = model.fit(x_train, y_train, batch_size=5000,epochs=200,verbose=1)
-model.save_weights(filepath+'model_weights_kernel2_norm_near_100w_no_res.h5')
+model.fit(x_train, y_train,validation_split=0.1，batch_size=5000, epochs=300, callbacks=callbacks_list,verbose=0)
