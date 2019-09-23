@@ -54,7 +54,7 @@ model.add(Activation('relu'))
 model.add(Flatten())
 model.add(Dense(201))
 
-filename="/users/PAS1263/osu8085/0.25_1_mil/ker2/ker2_-1_and_1_normalize.hdf5"
+filename="/users/PAS1263/osu8085/0.25_1_mil/ker2/ker2_-1_and_1_normalize.h5"
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,mode='max')
 callbacks_list = [checkpoint]
 adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
