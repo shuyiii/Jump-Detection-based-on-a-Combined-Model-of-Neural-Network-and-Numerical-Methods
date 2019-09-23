@@ -40,7 +40,7 @@ model.add(Activation('relu'))
 model.add(Flatten())
 model.add(Dense(201))
 
-filename="./model_weights_kernel2_norm_near_100w_no_res.h5"
+filename="./model_weights_kernel2_norm_near_100w_no_res.hdf5"
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,mode='max')
 callbacks_list = [checkpoint]
 adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
