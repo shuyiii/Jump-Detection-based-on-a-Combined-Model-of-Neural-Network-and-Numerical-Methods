@@ -78,7 +78,7 @@ for i in range(1,num+1):
     data=(data-np.mean(data))/np.std(data)
     label=temp['label1']
     temp_label=t[i-1]
-    pred_label=model.predict(data.reshape(1,101,101,1))>0.2
+    pred_label=model.predict(data.reshape(1,101,101,1))>0.1
     for j in range(10):
         for k in range(10):
             if pred_label[j*10+k]==1:
