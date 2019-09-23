@@ -34,6 +34,7 @@ adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=F
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
 filepath="/users/PAS1263/osu8085/3D_detection/"
-model.load_weights(filepath+'model_weights_3D_10_10.h5')
-history = model.fit(train_data,train_label, batch_size=200, epochs=2, verbose=0)
-model.save_weights(filepath+'model_weights_3D_10_10.h5')
+filename=filepath+'model_weights_3D_10_10.hdf5'
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='max')
+callbacks_list = [checkpoint]
+model.fit(train_data,train_label, validation_split=0.1，callbacks=callbacks_list,batch_size=200, epochs=100, verbose=0)
