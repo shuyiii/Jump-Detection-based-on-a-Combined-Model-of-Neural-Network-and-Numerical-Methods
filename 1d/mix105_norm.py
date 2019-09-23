@@ -55,10 +55,10 @@ model.add(Flatten())
 model.add(Dense(201))#relu or not?  should restrict each to 0 and 1
 
 
+filename="/users/PAS1263/osu8085/0.25_1_mil/ker2_5_and_10_201_normalize.hdf5"
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,mode='max')
+callbacks_list = [checkpoint]
 adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
-history = model.fit(x_train, y_train, batch_size=20000, epochs=300, verbose=0)
-########################################################################################################
-filepath="/users/PAS1263/osu8085/0.25_1_mil/ker2/"
-model.save_weights(filepath+'ker2_5_and_10_201_normalize.h5')
+model.fit(x_train, y_train,validation_split=0.1，batch_size=20000, epochs=300, callbacks=callbacks_list,verbose=0)
