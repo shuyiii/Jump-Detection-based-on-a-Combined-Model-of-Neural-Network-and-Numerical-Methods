@@ -53,4 +53,4 @@ callbacks_list = [checkpoint]
 adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
-model.fit(x_train, y_train,validation_split=0.1，batch_size=20000, epochs=300, callbacks=callbacks_list,verbose=0)
+model.fit(x_train, y_train,validation_split=0.1, batch_size=20000, epochs=300, callbacks=callbacks_list,verbose=0)
