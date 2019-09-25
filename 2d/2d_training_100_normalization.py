@@ -18,6 +18,7 @@ import tensorflow as tf
 import skimage
 from matplotlib import colors
 import matplotlib.patches as patches
+from keras.callbacks import ModelCheckpoint
 
 num=76045
 folder='/fs/project/PAS1263/data/circle_1mil/'
