@@ -1,3 +1,4 @@
+import tensorflow as tf
 import keras
 from keras import backend as K
 from keras.engine.topology import Layer
@@ -7,12 +8,7 @@ from keras.optimizers import SGD, Adam
 import numpy as np
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
-from matplotlib import *
-import pylab as pl
 from keras.models import Model
-from sklearn import preprocessing
-import tensorflow as tf
-from matplotlib import colors
 import matplotlib.patches as patches
 from keras.callbacks import ModelCheckpoint
 ###############################################################################
@@ -41,8 +37,6 @@ folder='/fs/project/PAS1263/data/circle_1mil/'
 train_data=[]
 train_label=[]
 t=np.load('label_10_circle.npy')
-total_circle=0#record how many samples of circle used 
-total_true_circle=0#record how many samples contain jumps
 for i in range(1,num+1):
     temp=loadmat(folder+'image'+str(i)+'.mat')
     data=temp['image']
@@ -59,8 +53,6 @@ for i in range(1,num+1):
 num=68076
 folder='/fs/project/PAS1263/data/line_curve/'
 t=np.load('label_10_line.npy')
-total_line=0#record how many samples of line used 
-total_true_line=0#record how many samples contain jumps
 for i in range(1,num+1):
     temp=loadmat(folder+'image'+str(i)+'.mat')
     data=temp['image']
@@ -93,11 +85,8 @@ adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=F
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
 
-#filepath="/2D_models/new_train/"
-#model.load_weights(filepath+'model_weights_10_10_local_normalize.h5')
 filename=filepath+"model_weights_10_10_local_normalize_3.0.hdf5"
-checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='max')
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
 
-model.fit(train_data,train_label, validation_split=0.1, callbacks=callbacks_list,batch_size=5000, epochs=30, verbose=0)
-#model.fit(train_data,train_label, batch_size=2000, epochs=50, verbose=0)
+model.fit(train_data,train_label, validation_split=0.1, callbacks=callbacks_list,batch_size=5000, epochs=500, verbose=0)
