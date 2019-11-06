@@ -1,8 +1,6 @@
-#folder1='E:/CNN/detect discontinuity/2D data/2D data/circle_1wan/circle_1wan/'
-#folder2='E:/CNN/detect discontinuity/2D data/2D data/line_test/line_test/'
-folder1='D:/paper_material/2d/test data/circle/'
-folder2='D:/paper_material/2d/test data/line/'
-folder='E:/CNN/detect discontinuity/2D data/new_models/'#load model
+folder1='/2d/test data/circle/'
+folder2='/2d/test data/line/'
+folder='/detect discontinuity/2D data/new_models/'#load model
 
 test_data=[]
 test_label=[]
@@ -67,10 +65,8 @@ for i in range(len(test_data)):
 
 
 ###############################################################################
-#folder1='E:/CNN/detect discontinuity/2D data/2D data/circle_1wan/circle_1wan/'
-#folder2='E:/CNN/detect discontinuity/2D data/2D data/line_test/line_test/'
-folder1='D:/paper_material/2d/test data/circle/'
-folder2='D:/paper_material/2d/test data/line/'
+folder1='/2d/test data/circle/'
+folder2='/2d/test data/line/'
 
 test_label_100=[]
 for i in range(1,51):
