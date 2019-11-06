@@ -6,7 +6,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-import scipy.io as sio
 import math
 import tensorflow as tf
 from tensorflow import keras
@@ -17,8 +16,6 @@ from keras.layers import MaxPooling2D,Lambda,Dense,BatchNormalization,Flatten,Re
 from keras.optimizers import SGD, Adam
 from scipy.io import loadmat
 from keras.models import Model
-from sklearn import preprocessing
-from matplotlib import colors
 #######function definition#####################################################
 def get_nearest_N_point(grid_points, center):
     
