@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Sep  3 01:27:37 2019
-
 @author: wang7
 """
 import numpy as np
@@ -118,9 +116,9 @@ def MMLmf(max_m,x,y,image,center,grid_points):
         MMLmf=0    
     return MMLmf
 #######load data########################################################################
-folder1='D:/paper_material/2d/circle curve/circle curve/circle/'
-folder2='D:/paper_material/2d/one line curve/one line curve/one line/'
-folder='E:/CNN/detect discontinuity/2D data/new_models/model_weights_10_10_normalization_each.h5'#load model
+folder1='2d/circle curve/circle curve/circle/'
+folder2='2d/one line curve/one line curve/one line/'
+folder='2D data/new_models/model_weights_10_10_normalization_each.h5'#load model
 
 test_data=[]
 test_label=[]
