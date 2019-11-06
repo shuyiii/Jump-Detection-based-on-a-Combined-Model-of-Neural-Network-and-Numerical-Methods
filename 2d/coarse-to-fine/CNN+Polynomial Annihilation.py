@@ -12,8 +12,6 @@ from keras.layers import MaxPooling2D,Lambda,Dense,BatchNormalization,Flatten,Re
 from keras.optimizers import SGD, Adam
 from scipy.io import loadmat
 from keras.models import Model
-from sklearn import preprocessing
-from matplotlib import colors
 from scipy.spatial import Delaunay
 #######function definition#####################################################
 def get_nearest_N_point(grid_points, center):
@@ -205,6 +203,5 @@ for n in range(10):
     plt.subplots_adjust(top=0.95,bottom=0.05,left=0.05,right=0.95,hspace=0,wspace=0) 
     plt.margins(0.01,0.01)
     plt.show()
-    plt.savefig('D:/paper_material/paper/original figures/CNNPoly ('+str(n)+').svg')
-    plt.savefig('D:/paper_material/paper/figure/CNNPoly ('+str(n)+').pdf')
+    plt.savefig('/original figures/CNNPoly ('+str(n)+').svg')
     plt.close()
