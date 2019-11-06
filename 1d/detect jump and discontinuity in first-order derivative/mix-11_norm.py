@@ -8,9 +8,6 @@ from keras.optimizers import Adam
 import numpy as np
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
-from matplotlib import *
-import sys
-import pylab as pl
 from keras.models import Model
 from keras.callbacks import ModelCheckpoint
 
@@ -55,7 +52,7 @@ model.add(Flatten())
 model.add(Dense(201))
 
 filename="/users/PAS1263/osu8085/0.25_1_mil/ker2/ker2_-1_and_1_normalize.h5"
-checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,mode='max')
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='min',period=1)
 callbacks_list = [checkpoint]
 adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 model.compile(optimizer = "adam", loss = root_mean_squared_error, metrics =["accuracy"])
