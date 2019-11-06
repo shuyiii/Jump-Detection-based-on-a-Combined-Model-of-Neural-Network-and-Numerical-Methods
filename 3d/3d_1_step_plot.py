@@ -1,9 +1,8 @@
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
-from itertools import product, combinations
-from matplotlib.patches import FancyArrowPatch
 from mpl_toolkits.mplot3d import proj3d
+import tensorflow as tf
 import keras
 from keras import backend as K
 from keras.engine.topology import Layer
@@ -12,8 +11,6 @@ from keras.layers import Conv3D, MaxPool3D,Lambda,Dense,BatchNormalization,Flatt
 from keras.optimizers import SGD, Adam
 from scipy.io import loadmat
 from keras.models import Model
-import tensorflow as tf
-import skimage
 from matplotlib import colors
 import matplotlib.patches as patches
 #############################################################################################################
