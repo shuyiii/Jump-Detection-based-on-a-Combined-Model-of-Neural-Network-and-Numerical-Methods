@@ -8,9 +8,6 @@ from keras.optimizers import SGD, Adam
 import numpy as np
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
-from matplotlib import *
-import sys
-import pylab as pl
 from keras.models import Model
 from keras.callbacks import ModelCheckpoint
 
@@ -41,9 +38,9 @@ model.add(Flatten())
 model.add(Dense(201))
 
 filename="./model_weights_kernel2_norm_near_100w_no_res.h5"
-checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,mode='max')
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True,mode='min')
 callbacks_list = [checkpoint]
 adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 model.compile(optimizer = "adam", loss = root_mean_squared_error, 
               metrics =["accuracy"])
-model.fit(x_train, y_train,validation_split=0.1, batch_size=5000, epochs=300, callbacks=callbacks_list,verbose=0)
+model.fit(x_train, y_train,validation_split=0.1, batch_size=5000, epochs=500, callbacks=callbacks_list,verbose=0)
