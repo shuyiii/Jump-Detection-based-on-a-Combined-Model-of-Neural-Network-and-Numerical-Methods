@@ -49,7 +49,7 @@ model.add(Activation('relu'))
 model.add(Convolution2D(24, (1,2),strides=(1,2),input_shape=(1,202,1)))
 model.add(Activation('relu'))
 model.add(Flatten())
-model.add(Dense(201))#relu or not?  should restrict each to 0 and 1
+model.add(Dense(201))
 
 
 filename="/users/PAS1263/osu8085/0.25_1_mil/ker2_5_and_10_normalize.h5"
