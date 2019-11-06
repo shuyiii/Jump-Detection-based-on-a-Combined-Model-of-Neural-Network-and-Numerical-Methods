@@ -6,7 +6,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-import scipy.io as sio
 import math
 import tensorflow as tf
 from tensorflow import keras
@@ -17,7 +16,6 @@ from keras.layers import MaxPooling2D,Lambda,Dense,BatchNormalization,Flatten,Re
 from keras.optimizers import SGD, Adam
 from scipy.io import loadmat
 from keras.models import Model
-from sklearn import preprocessing
 from matplotlib import colors
 ######load model###############################################################
 def root_mean_squared_error(y_pred,y_true):
@@ -177,11 +175,9 @@ def predict_draw(data,label,m1,m2,threshold1,threshold2,name):
 #########################an example######################################################
 a=[51,71,101,151,201]
 for h in range(5):
-    temp=loadmat('D:/paper_material/2d/2d_general_prediction/data_example/'+str(a[h])+'.mat')
+    temp=loadmat('/2d/2d_general_prediction/data_example/'+str(a[h])+'.mat')
     data=temp['Z']
     label=temp['label1']
     predict_draw(data,label,90,90,0.5,0.3,a[h])
 
 ###############################################################################
-    
-#如果框在外边，把框移动到最近的里面最检测。
