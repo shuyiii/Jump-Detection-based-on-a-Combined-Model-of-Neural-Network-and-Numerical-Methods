@@ -36,6 +36,6 @@ model.compile(optimizer = "adam", loss = root_mean_squared_error,
               metrics =["accuracy"])
 filepath="/users/PAS1263/osu8085/3D_detection/"
 filename=filepath+'model_weights_3D_10_10.h5'
-checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='max')
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
-model.fit(train_data,train_label, validation_split=0.1，callbacks=callbacks_list,batch_size=200, epochs=100, verbose=0)
+model.fit(train_data,train_label, validation_split=0.1，callbacks=callbacks_list,batch_size=200, epochs=1000, verbose=0)
