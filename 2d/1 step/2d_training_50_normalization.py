@@ -7,16 +7,8 @@ from keras.optimizers import SGD, Adam
 import numpy as np
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
-from matplotlib import *
-import sys
-import pylab as pl
 from keras.models import Model
-from sklearn import preprocessing
-import cv2
-import os
 import tensorflow as tf
-import skimage
-from matplotlib import colors
 from keras.callbacks import ModelCheckpoint
 
 num=76045
@@ -58,6 +50,6 @@ adam=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=F
 model.compile(optimizer = "adam", loss = root_mean_squared_error, metrics =["accuracy"])
 filepath="/users/PAS1263/osu8085/2D_models/new_train/"
 filename=filepath+"/model_weights_50_50_normalization_each.h5"
-checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='max')
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=0, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
-model.fit(train_data,train_label, validation_split=0.1, callbacks=callbacks_list,batch_size=1000, epochs=100, verbose=0)
+model.fit(train_data,train_label, validation_split=0.1, callbacks=callbacks_list,batch_size=1000, epochs=500, verbose=0)
