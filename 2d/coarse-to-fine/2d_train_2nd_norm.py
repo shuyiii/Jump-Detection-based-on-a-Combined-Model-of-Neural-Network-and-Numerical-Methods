@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Mar 11 22:55:23 2019
-
 @author: wang7
 """
-#create new training data to piece of 4*4 for training
+import tensorflow as tf
 import keras
 from keras import backend as K
 from keras.engine.topology import Layer
@@ -14,11 +13,7 @@ from keras.optimizers import SGD, Adam
 import numpy as np
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
-from matplotlib import *
-import pylab as pl
 from keras.models import Model
-from sklearn import preprocessing
-import tensorflow as tf
 from matplotlib import colors
 import matplotlib.patches as patches
 from keras.callbacks import ModelCheckpoint
