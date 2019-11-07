@@ -1,0 +1,2 @@
+# Jump-Detection-based-on-a-Combined-Model-of-Neural-Network-and-Numerical-Methods
+# Jump detection on 1D, 2D and 3D functions based on CNN methods, and hybrid CNN and numerical (Polynomial Annihilation) methods. The detector can be applied to any functions containing jumps on any domain, with any data length and grid size. The detection problem is also extended to discontinuity in high order derivatives. (The coding of Polynomial Annihilation and training data generation is implemented by Zixu Zhou, a PhD student in Mathematics department at OSU.)
